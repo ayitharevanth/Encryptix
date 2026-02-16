@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             case '*':
                 return (num1 * num2).toString();
             case '/':
-                return num2 !== 0 ? (num1 / num2).toString() : 'Error';
+                return num2 !== 0 ? (num1 / num2).toString() : 'Cannot divide by zero';
             default:
                 return b;
         }
