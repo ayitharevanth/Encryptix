@@ -5,6 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
     let operator = '';
     let previousInput = '';
 
+    function calculate(a, op, b) {
+        const num1 = parseFloat(a);
+        const num2 = parseFloat(b);
+        
+        switch(op) {
+            case '+':
+                return (num1 + num2).toString();
+            case '-':
+                return (num1 - num2).toString();
+            case '*':
+                return (num1 * num2).toString();
+            case '/':
+                return num2 !== 0 ? (num1 / num2).toString() : 'Error';
+            default:
+                return b;
+        }
+    }
+
     keys.addEventListener('click', function(e) {
         const target = e.target;
         const value = target.value;
@@ -24,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             case '=':
                 if (operator && previousInput !== '') {
-                    currentInput = eval(previousInput + operator + currentInput);
+                    currentInput = calculate(previousInput, operator, currentInput);
                     operator = '';
                     previousInput = '';
                 }
